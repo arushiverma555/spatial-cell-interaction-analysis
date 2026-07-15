@@ -1,49 +1,140 @@
 # Spatial Cell Interaction Analysis
-Computational framework for identifying spatial relationships between immune and tumor cells in multiplex tissue imaging datasets using graph-based network analysis.
 
-# Technologies 
-R • tidyverse • igraph • networkD3 • Statistical Analysis • Spatial Omics
+Computational pipeline for quantifying spatial organization within the tumor microenvironment using multiplex tissue imaging. This project identifies statistically enriched cell-cell interactions, compares protein expression across neighboring and distant cell populations, and generates interactive network visualizations to study immune organization in cancer tissues.
 
-# Why This Project Matters
-The spatial organization of immune cells within tumors strongly influences disease progression and response to immunotherapy.
+---
 
-This project develops a computational workflow to quantify cell-cell neighborhoods, construct interaction networks, and identify protein-expression differences associated with spatial proximity.
+## Why this Project Matters
 
-# My Contributions
-- Developed computational pipeline for pairwise spatial distance calculations
-- Designed graph-based interaction network generation
-- Built protein interaction analysis workflow
-- Created interactive network visualizations
-- Optimized visualization aesthetics and edge-weight filtering
-- Performed statistical comparisons between neighboring and distant cell populations
+The spatial organization of immune cells within tumors strongly influences immune response, disease progression, and immunotherapy outcomes. Rather than studying cell populations independently, this project analyzes how different cell types interact within tissue architecture to identify biologically meaningful cellular neighborhoods.
 
-## Workflow
+---
 
-1. Import cell-coordinate and cell-type data
-2. Calculate pairwise Euclidean distances
-3. Classify cell pairs as near or far
-4. Summarize interactions by cell-type pair
-5. Compare protein expression between near and far populations
-6. Construct weighted interaction networks
-7. Generate interactive visualizations
+## Technologies
 
-## Computational Methods
+- R
+- tidyverse
+- igraph
+- networkD3
+- dplyr
+- statistical analysis
+- spatial omics
+
+---
+
+## Project Overview
+
+Using multiplex spatial imaging data, this workflow:
+
+- Calculates pairwise distances between every cell
+- Quantifies observed vs. expected cell-cell interactions
+- Compares protein expression between neighboring and distant cells
+- Builds interactive network visualizations highlighting enriched interactions
+
+The resulting pipeline enables quantitative exploration of tumor immune microenvironments and supports hypothesis generation for spatial biomarker discovery.
+
+---
+
+## Computational Pipeline
+
+```text
+Multiplex Imaging Data
+          │
+          ▼
+Cell Coordinates & Cell Types
+          │
+          ▼
+Pairwise Distance Calculations
+          │
+          ▼
+Observed vs Expected Interaction Analysis
+          │
+          ▼
+Protein Expression Comparisons
+          │
+          ▼
+Interactive Network Visualization
+          │
+          ▼
+Biological Interpretation
+```
+
+---
+
+## My Contributions
+
+- Developed R workflows for pairwise spatial distance calculations across multiplex imaging datasets
+- Designed graph-based algorithms to construct cell-cell interaction networks
+- Built statistical workflows comparing neighboring and distant cell populations
+- Implemented protein interaction analysis to identify spatially associated biomarkers
+- Created interactive network visualizations using igraph and networkD3
+- Improved visualization aesthetics, filtering strategies, and edge-weight scaling for large tissue datasets
+
+---
+
+## Methods
+
+### Spatial Analysis
 
 - Pairwise Euclidean distance calculations
-- Cell-neighborhood classification
-- Cell-type interaction aggregation
-- Protein-expression comparison
-- Statistical testing
-- Weighted graph construction
-- Interactive network visualization
+- Cell-neighborhood identification
+- Observed vs. expected interaction analysis
+- Cell-type interaction frequency calculations
 
-## Example Outputs
+### Statistical Analysis
 
-### Overall Cell-Interaction Network
+- Protein expression comparison
+- Near vs. far interaction testing
+- Summary statistics
+- Data visualization
 
+### Visualization
 
-### Core-Level Interaction Network
+- igraph
+- networkD3
+- Interactive HTML network outputs
 
+---
 
-### Interaction Summary Table
+## Repository Structure
 
+```
+src/
+    distanceCalc.R
+    ProteinInteractions_02.R
+    NetworkVisualization_03.R
+
+data/
+    processed interaction tables
+
+results/
+    network outputs
+    summary tables
+
+figures/
+    interaction_network_v4.png
+```
+
+---
+
+## Example Results
+
+### Overall Cell Interaction Network
+
+![Overall Network](figures/interaction_network_v4.png)
+
+The network summarizes statistically enriched interactions across all analyzed tissue cores. Node size represents cell abundance, while edge direction and thickness represent interaction strength between cell populations.
+
+Additional interactive HTML visualizations are available in the `results/` directory.
+
+---
+
+## Future Directions
+
+Current work is focused on expanding this framework to:
+
+- larger multiplex datasets
+- additional immune biomarkers
+- graph-based machine learning
+- integration with patient clinical outcomes
+- spatial biomarker discovery for precision oncology
